@@ -15,11 +15,10 @@
            "https://github.com/PythonNut/flx-isearch/wiki"))
 
 ;; derived from flex-isearch.el
-;;;###autoload
 (defcustom flx-isearch-message-prefix "[flx] "
   "Prepended to the isearch prompt when flx searching is activated."
   :type 'string
-  :group 'flex-isearch)
+  :group 'flx-isearch)
 
 ;; flx-isearch has to store a lot of state
 (defvar flx-isearch-index 0
