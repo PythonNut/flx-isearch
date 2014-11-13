@@ -212,7 +212,7 @@ Note that this means that newpoint > oldpoint is not always true."
   (flx-isearch-resolve-last-state)
   (let* ((matches (flx-isearch-compute-matches string))
           (match (elt matches flx-isearch-index)))
-    (if (search-forward-regexp
+    (if (re-search-forward
           (concat "\\_<" (car match) "\\_>")
           nil t count)
       (point)
@@ -233,7 +233,7 @@ Note that this means that newpoint < oldpoint is not always true."
   (flx-isearch-resolve-last-state)
   (let* ((matches (flx-isearch-compute-matches string))
           (match (elt matches flx-isearch-index)))
-    (if (search-backward-regexp
+    (if (re-search-backward
           (concat "\\_<" (car match) "\\_>")
           nil t count)
       (point)
