@@ -71,7 +71,9 @@ during flx-isearch searches")
                      coll)))
       coll)))
 
-(defun flx-isearch-fuse (pairs)
+(defun flx-isearch-fuse-alist (pairs)
+  "Turn an alist with duplicate keys into a hash table that maps
+keys to lists of values. Ordering is preserved."
   (lexical-let ((mapping (make-hash-table
                            :test 'equal
                            :size 1000))
@@ -128,7 +130,7 @@ recomputed on `isearch-repeat-forward' and `isearch-repeat-backward'")
 should be called before any search is started"
   (setq
     flx-isearch-cache-level-1 (flx-isearch-hash-table-to-alist
-                                (flx-isearch-fuse
+                                (flx-isearch-fuse-alist
                                   (flx-isearch-collect-symbols)))
     flx-isearch-cache-level-2 (flx-isearch-make-cache)
     flx-isearch-cache-level-3 nil
