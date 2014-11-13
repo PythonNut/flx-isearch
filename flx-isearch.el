@@ -305,14 +305,18 @@ enabled."
         'around 'flx-isearch-set-lazy-flag)
       (ad-activate 'isearch-lazy-highlight-search))))
 
+(defun flx-isearch-activate-maybe (regexp-p)
+  (unless flx-isearch-mode
+    (flx-isearch-mode +1))
+  (when (null regexp-p)
+    (flx-isearch-activate)))
+
 ;; derived from flex-isearch.el
 ;;;###autoload
 (defun flx-isearch-forward (&optional regexp-p no-recursive-edit)
   "Start a fuzzy forward isearch"
   (interactive "P\np")
-  (when (and flx-isearch-mode
-          (null regexp-p))
-    (flx-isearch-activate))
+  (flx-isearch-activate-maybe regexp-p)
   (isearch-mode t (not (null regexp-p)) nil (not no-recursive-edit)))
 
 ;; derived from flex-isearch.el
@@ -320,9 +324,7 @@ enabled."
 (defun flx-isearch-backward (&optional regexp-p no-recursive-edit)
   "Start a fuzzy backward isearch"
   (interactive "P\np")
-  (when (and flx-isearch-mode
-          (null regexp-p))
-    (flx-isearch-activate))
+  (flx-isearch-activate-maybe regexp-p)
   (isearch-mode nil (not (null regexp-p)) nil (not no-recursive-edit)))
 
 (provide 'flx-isearch)
