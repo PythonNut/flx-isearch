@@ -69,8 +69,8 @@ highlighting")
   "Stores the previous value of `isearch-search-fun-function'
 during flx-isearch searches")
 
-(defvar flx-isearch-activated nil)
-
+(defvar flx-isearch-activated nil
+  "When nil, search is never flexible")
 
 (defun flx-isearch-strip-text-properties(txt)
   (set-text-properties 0 (length txt) nil txt)
@@ -139,7 +139,7 @@ recomputed on `isearch-repeat-forward' and `isearch-repeat-backward'")
   "The flx heatmap used to store the symbols in the current buffer"
   (flx-get-heatmap-str symbol-name))
 
-(defun flx-isearch-make-cache()
+(defun flx-isearch-make-cache ()
   "The flx cache used to store the symbols in the current buffer"
   (flx-make-string-cache 'flx-isearch-heatmap))
 
