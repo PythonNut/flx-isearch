@@ -255,7 +255,7 @@ of the lazy variety"
 
 ;; derived from flex-isearch.el
 (defadvice isearch-message-prefix (after flx-isearch-message-prefix activate)
-  (if (or t flx-isearch-activated)
+  (if flx-isearch-activated
     (setq ad-return-value (concat flx-isearch-message-prefix ad-return-value))
     ad-return-value))
 
