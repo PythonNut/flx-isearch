@@ -4,6 +4,7 @@
     (require 'cl)
     (require 'cl-lib)))
 
+;; derived from flex-isearch.el
 (defgroup flx-isearch nil
   "Flex matching in isearch with flx"
   :prefix "flx-isearch-"
@@ -13,6 +14,7 @@
   :link '(url-link :tag "Wiki"
            "https://github.com/PythonNut/flx-isearch/wiki"))
 
+;; derived from flex-isearch.el
 ;;;###autoload
 (defcustom flx-isearch-message-prefix "[flx] "
   "Prepended to the isearch prompt when flx searching is activated."
@@ -230,6 +232,7 @@ of the lazy variety"
   (let ((flx-isearch-lazy-flag t))
     ad-do-it))
 
+;; derived from flex-isearch.el
 (defun flx-isearch-search-fun ()
   "Set to `isearch-search-fun-function' when `flx-isearch-mode' is
 enabled."
@@ -253,6 +256,7 @@ enabled."
   (interactive)
   (setq flx-isearch-activated nil))
 
+;; derived from flex-isearch.el
 (define-minor-mode flx-isearch-mode
   :init-value nil
   :group 'flx-isearch
@@ -273,6 +277,7 @@ enabled."
         'around 'flx-isearch-set-lazy-flag)
       (ad-activate 'isearch-lazy-highlight-search))))
 
+;; derived from flex-isearch.el
 (defun flx-isearch-forward (&optional regexp-p no-recursive-edit)
   "Start a fuzzy forward isearch"
   (interactive "P\np")
@@ -281,6 +286,7 @@ enabled."
     (flx-isearch-activate))
   (isearch-mode t (not (null regexp-p)) nil (not no-recursive-edit)))
 
+;; derived from flex-isearch.el
 (defun flx-isearch-backward (&optional regexp-p no-recursive-edit)
   "Start a fuzzy backward isearch"
   (interactive "P\np")
