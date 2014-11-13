@@ -1,3 +1,26 @@
+;;; flx-isearch.el --- Flex matching with flx in isearch
+
+;; Copyright (C) 2014 PythonNut
+
+;; Author: PythonNut <pythonnut@pythonnut.com>
+;; Keywords: convenience, search, flx
+;; Version: 20141313
+;; URL: https://github.com/pythonnut/flx-isearch
+
+;; This program is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation, either version 3 of the License, or
+;; (at your option) any later version.
+
+;; This program is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+;; GNU General Public License for more details.
+
+;; You should have received a copy of the GNU General Public License
+;; along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+;;; Code:
 (require 'flx)
 (eval-when-compile
   (progn
@@ -8,11 +31,7 @@
 (defgroup flx-isearch nil
   "Flex matching in isearch with flx"
   :prefix "flx-isearch-"
-  :group 'isearch
-  :link '(url-link :tag "Development and bug reports"
-           "https://github.com/PythonNut/flx-isearch")
-  :link '(url-link :tag "Wiki"
-           "https://github.com/PythonNut/flx-isearch/wiki"))
+  :group 'isearch)
 
 ;; derived from flex-isearch.el
 (defcustom flx-isearch-message-prefix "[flx] "
