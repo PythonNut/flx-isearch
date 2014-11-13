@@ -82,7 +82,8 @@ during flx-isearch searches")
                              (gethash (first elt) mapping nil))
         mapping))))
 
-(defun hash-table-to-alist (hash-table)
+(defun flx-isearch-hash-table-to-alist (hash-table)
+  "Convert a hash table to an alist. No ordering is guaranteed."
   (lexical-let ((result nil))
     (maphash (lambda (key value)
                (setq result (cons `(,key . ,value) result)))
@@ -126,7 +127,7 @@ recomputed on `isearch-repeat-forward' and `isearch-repeat-backward'")
   "Reset all stateful variables to their default values
 should be called before any search is started"
   (setq
-    flx-isearch-cache-level-1 (hash-table-to-alist
+    flx-isearch-cache-level-1 (flx-isearch-hash-table-to-alist
                                 (flx-isearch-fuse
                                   (flx-isearch-collect-symbols)))
     flx-isearch-cache-level-2 (flx-isearch-make-cache)
