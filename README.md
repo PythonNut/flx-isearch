@@ -25,4 +25,4 @@ heuristics to sort matches. It's awesome. Use it.
 
 This was heavily inspired by 
 [emacsmirror/**flex-isearch**](https://github.com/emacsmirror/flex-isearch), 
-a cool idea that lacks the intelligent sorting flx provides. 
+a cool idea that lacks the intelligent sorting flx provides. Some code has been stolen from that package, especially the code that defines a major mode, as I've never made a major mode before.
