@@ -99,8 +99,8 @@ with respect to `str'"
           symbols)
     (lambda (a b)
       (>
-        (or (car (flx-score (car a) str cache)) -1)
-        (or (car (flx-score (car b) str cache)) -1)))))
+        (car (flx-score (car a) str cache))
+        (car (flx-score (car b) str cache))))))
 
 ;; and the cache stuff
 (defvar flx-isearch-cache-level-1 nil
