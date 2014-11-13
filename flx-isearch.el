@@ -1,7 +1,25 @@
-;;; ==========================================
-;;; flx-isearch -- space age searching nirvana
-;;; ==========================================
+(require 'flx)
+(eval-when-compile
+  (progn
+    (require 'cl)
+    (require 'cl-lib)))
 
+(defgroup flx-isearch nil
+  "Flex matching in isearch with flx"
+  :prefix "flx-isearch-"
+  :group 'isearch
+  :link '(url-link :tag "Development and bug reports"
+           "https://github.com/PythonNut/flx-isearch")
+  :link '(url-link :tag "Wiki"
+           "https://github.com/PythonNut/flx-isearch/wiki"))
+
+;;;###autoload
+(defcustom flx-isearch-message-prefix "[flx] "
+  "Prepended to the isearch prompt when flx searching is activated."
+  :type 'string
+  :group 'flex-isearch)
+
+;; flx-isearch has to store a lot of state
 (defvar flx-search-index 0)
 
 (defvar flx-isearch-index 0)
@@ -17,9 +35,8 @@
 (defvar flx-isearch-original-search-fun nil)
 (defvar flx-isearch-activated nil)
 
-(eval-when-compile (require 'flx))
 
-(defun strip-text-properties(txt)
+(defun flx-isearch-strip-text-properties(txt)
   (set-text-properties 0 (length txt) nil txt)
   txt)
 
@@ -30,7 +47,7 @@
       (goto-char (point-min))
       (while (forward-thing 'symbol)
         (setq coll (cons `(
-                            ,(strip-text-properties
+                            ,(flx-isearch-strip-text-properties
                                (thing-at-point 'symbol))
                             ,(car (bounds-of-thing-at-point 'symbol)))
                      coll)))
@@ -222,3 +239,5 @@ enabled."
           (null regexp-p))
     (flx-isearch-activate))
   (isearch-mode nil (not (null regexp-p)) nil (not no-recursive-edit)))
+
+(provide 'flx-isearch)
