@@ -260,6 +260,7 @@ enabled."
   (setq flx-isearch-activated nil))
 
 ;; derived from flex-isearch.el
+;;;###autoload
 (define-minor-mode flx-isearch-mode
   :init-value nil
   :group 'flx-isearch
@@ -281,6 +282,7 @@ enabled."
       (ad-activate 'isearch-lazy-highlight-search))))
 
 ;; derived from flex-isearch.el
+;;;###autoload
 (defun flx-isearch-forward (&optional regexp-p no-recursive-edit)
   "Start a fuzzy forward isearch"
   (interactive "P\np")
@@ -290,6 +292,7 @@ enabled."
   (isearch-mode t (not (null regexp-p)) nil (not no-recursive-edit)))
 
 ;; derived from flex-isearch.el
+;;;###autoload
 (defun flx-isearch-backward (&optional regexp-p no-recursive-edit)
   "Start a fuzzy backward isearch"
   (interactive "P\np")
