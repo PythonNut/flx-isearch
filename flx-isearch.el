@@ -31,7 +31,9 @@
 (defgroup flx-isearch nil
   "Flex matching in isearch with flx"
   :prefix "flx-isearch-"
-  :group 'isearch)
+  :group 'isearch
+  :link '(url-link :tag "Development and bug reports"
+           "https://github.com/PythonNut/flx-isearch"))
 
 ;; derived from flex-isearch.el
 (defcustom flx-isearch-message-prefix "[flx] "
