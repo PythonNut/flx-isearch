@@ -22,10 +22,7 @@
 
 ;;; Code:
 (require 'flx)
-(eval-when-compile
-  (progn
-    (require 'cl)
-    (require 'cl-lib)))
+(require 'cl-lib)
 
 ;; derived from flex-isearch.el
 (defgroup flx-isearch nil
