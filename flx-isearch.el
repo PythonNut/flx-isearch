@@ -115,11 +115,12 @@ keys to lists of values. Ordering is preserved."
 (defun flx-isearch-sort (str symbols &optional cache)
   "Sort the strings in `symbols' according to their `flx-score'
 with respect to `str'"
-  (sort (cl-remove-if-not
-          ;; the duplicate call to flx-score has negligible
-          ;; overhead if a cache is used.
-          (lambda (item) (car (flx-score (car item) str cache)))
-          symbols)
+  ;; sort* is destructive, but we don't care
+  (cl-sort* (cl-remove-if-not
+             ;; the duplicate call to flx-score has negligible
+             ;; overhead if a cache is used.
+             (lambda (item) (car (flx-score (car item) str cache)))
+             symbols)
     (lambda (a b)
       (>
         (car (flx-score (car a) str cache))
