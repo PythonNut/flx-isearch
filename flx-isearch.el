@@ -6,6 +6,9 @@
 ;; Keywords: convenience, search, flx
 ;; Version: 20141313
 ;; URL: https://github.com/pythonnut/flx-isearch
+;; Package-Requires: ((emacs "24") (flx "20140821") (cl-lib "0.5"))
+
+;;; License:
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -20,7 +23,26 @@
 ;; You should have received a copy of the GNU General Public License
 ;; along with this program. If not, see <http://www.gnu.org/licenses/>.
 
+;;; Commentary:
+
+;; Fuzzy matching is awesome, when done right.
+
+;; This program lets you isearch for `fiis` and be taken to matches for `flx-isearch-initialize-state`.
+;; Searches currently only apply to symbols. The input string is flex matched to all symbols in the buffer,
+;; and all matching symbols are searched one by one.
+
+;; For example, searching for `fii` in `flx-isearch.el` first takes you to
+;; * all instances of `flx-isearch-index` one by one
+;; * all instances of `flx-isearch-initialize-state` one by one
+;; * all instances of `flx-isearch-lazy-index` one by one
+;; * [...]
+;; * all instances of `bounds-of-thing-at-point` one by one
+
+;; The _hope_ is that `flx` will be smart enough to quickly take you to the symbol you're thinking of
+;; with minimal effort.
+
 ;;; Code:
+
 (require 'flx)
 (require 'cl-lib)
 
@@ -328,3 +350,4 @@ enabled."
   (isearch-mode nil (not (null regexp-p)) nil (not no-recursive-edit)))
 
 (provide 'flx-isearch)
+;;; flx-isearch.el ends here
