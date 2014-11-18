@@ -40,6 +40,13 @@
 
 ;; The _hope_ is that `flx' will be smart enough to quickly take you to the symbol you're thinking of
 ;; with minimal effort.
+;; Usage:
+
+;; By default, `flx-isearch` does not bind any keys. `package.el' will
+;; automatically setup the appropriate autoloads, and you can then do this:
+
+;;     (global-set-key (kbd "C-M-s") 'flx-isearch-forward)
+;;     (global-set-key (kbd "C-M-r") 'flx-isearch-backward)
 
 ;;; Code:
 
