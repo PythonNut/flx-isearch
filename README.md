@@ -18,6 +18,16 @@ The _hope_ is that `flx` will be smart enough to quickly take you to the symbol 
 with minimal effort. If you don't believe me, I encourage you to try `flx`. It's wonderful,
 and extrememly addicting.
 
+Usage
+=====
+
+By default, `flx-isearch` does not bind any keys. To use, install from MELPA with `M-x package-install <ret> flx-isearch <ret>`. `package.el` will automatically setup the appropriate autoloads, and you can then do this:
+
+```emacs
+(global-set-key (kbd "C-M-s") 'flx-isearch-forward)
+(global-set-key (kbd "C-M-r") 'flx-isearch-backward)
+```
+
 Credits
 =======
 Flx isearch uses [lewang/**flx**](https://github.com/lewang/flx), a library that uses sophistocated 
