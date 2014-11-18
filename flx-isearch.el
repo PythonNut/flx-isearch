@@ -1,4 +1,4 @@
-;;; flx-isearch.el --- Flex matching with flx in isearch
+;;; flx-isearch.el --- Fuzzy incremental searching for emacs
 
 ;; Copyright (C) 2014 PythonNut
 
