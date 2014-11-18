@@ -99,7 +99,7 @@ during flx-isearch searches")
 
 (defun flx-isearch-collect-symbols ()
   (interactive)
-  (let ((coll '()))
+  (let ((coll nil))
     (save-excursion
       (goto-char (point-min))
       (while (forward-thing 'symbol)
@@ -162,7 +162,7 @@ recomputed on `isearch-repeat-forward' and `isearch-repeat-backward'")
 
 (defun flx-isearch-make-cache ()
   "The flx cache used to store the symbols in the current buffer"
-  (flx-make-string-cache 'flx-isearch-heatmap))
+  (flx-make-string-cache #'flx-isearch-heatmap))
 
 (defun flx-isearch-initialize-state ()
   "Reset all stateful variables to their default values
@@ -286,14 +286,21 @@ of the lazy variety"
 enabled."
   (cond
     (isearch-word
-      (if isearch-forward 'word-search-forward 'word-search-backward))
+      (if isearch-forward
+        #'word-search-forward
+        #'word-search-backward))
     (isearch-regexp
-      (if isearch-forward 're-search-forward 're-search-backward))
+      (if isearch-forward
+        #'re-search-forward
+        #'re-search-backward))
     (flx-isearch-activated
-      (if isearch-forward 'flx-search-forward 'flx-search-backward))
+      (if isearch-forward
+        #'flx-search-forward
+        #'flx-search-backward))
     (t
-      (if isearch-forward 'search-forward 'search-backward))))
-
+      (if isearch-forward
+        #'search-forward
+        #'search-backward))))
 
 (defun flx-isearch-activate ()
   (interactive)
@@ -311,16 +318,16 @@ enabled."
   (if flx-isearch-mode
     (progn
       (setq flx-isearch-original-search-fun isearch-search-fun-function)
-      (setq isearch-search-fun-function 'flx-isearch-search-fun)
-      (add-hook 'isearch-mode-end-hook 'flx-isearch-deactivate)
-      (add-hook 'isearch-mode-hook 'flx-isearch-initialize-state)
+      (setq isearch-search-fun-function #'flx-isearch-search-fun)
+      (add-hook 'isearch-mode-end-hook #'flx-isearch-deactivate)
+      (add-hook 'isearch-mode-hook #'flx-isearch-initialize-state)
       (ad-enable-advice 'isearch-lazy-highlight-search
         'around 'flx-isearch-set-lazy-flag)
       (ad-activate 'isearch-lazy-highlight-search))
     (progn
       (setq isearch-search-fun-function flx-isearch-original-search-fun)
-      (remove-hook 'isearch-mode-end-hook 'flx-isearch-deactivate)
-      (remove-hook 'isearch-mode-hook 'flx-isearch-initialize-state)
+      (remove-hook 'isearch-mode-end-hook #'flx-isearch-deactivate)
+      (remove-hook 'isearch-mode-hook #'flx-isearch-initialize-state)
       (ad-disable-advice 'isearch-lazy-highlight-search
         'around 'flx-isearch-set-lazy-flag)
       (ad-activate 'isearch-lazy-highlight-search))))
