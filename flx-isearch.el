@@ -294,7 +294,6 @@ enabled."
     (t
       (if isearch-forward 'search-forward 'search-backward))))
 
-(setq isearch-search-fun-function 'flx-isearch-search-fun)
 
 (defun flx-isearch-activate ()
   (interactive)
