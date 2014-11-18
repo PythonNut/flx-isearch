@@ -1,7 +1,8 @@
 flx-isearch
 ===========
+[![MELPA](http://melpa.org/packages/flx-isearch-badge.svg)](http://melpa.org/#/flx-isearch)
 
-Fuzzy matching is awesome, when done right. 
+Fuzzy matching is awesome, when done right.
 
 This program lets you isearch for `fiis` and be taken to matches for `flx-isearch-initialize-state`. 
 Searches currently only apply to symbols. The input string is flex matched to all symbols in the buffer, 
