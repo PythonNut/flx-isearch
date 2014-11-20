@@ -15,6 +15,10 @@ For example, searching for `fii` in `flx-isearch.el` first takes you to
  * [...]
  * all instances of `bounds-of-thing-at-point` one by one
 
+**Obligatory screencast**
+
+![screencast](img/flx-isearch-demo.gif)
+
 The _hope_ is that `flx` will be smart enough to quickly take you to the symbol you're thinking of
 with minimal effort. If you don't believe me, I encourage you to try `flx`. It's wonderful,
 and extrememly addicting.
