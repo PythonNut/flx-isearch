@@ -38,8 +38,8 @@
 ;; * [...]
 ;; * all instances of `bounds-of-thing-at-point' one by one
 
-;; The _hope_ is that `flx' will be smart enough to quickly take you to the symbol you're thinking of
-;; with minimal effort.
+;; The _hope_ is that `flx' will be smart enough to quickly take you to the symbol you're thinking of with minimal effort.
+
 ;; Usage:
 
 ;; By default, `flx-isearch` does not bind any keys. `package.el' will
