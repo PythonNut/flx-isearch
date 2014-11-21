@@ -33,6 +33,10 @@ By default, `flx-isearch` does not bind any keys. To use, install from MELPA wit
 (global-set-key (kbd "C-M-r") 'flx-isearch-backward)
 ```
 
+Bugs
+====
+Everyone's favorite subject. I'm sure there are some in this code. I'm pretty sure this works on `24.4` and `24.3`, but I don't have a way to test older versions. Issues welcome!
+
 Credits
 =======
 Flx isearch uses [lewang/**flx**](https://github.com/lewang/flx), a library that uses sophistocated 
