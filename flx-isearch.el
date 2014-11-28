@@ -123,7 +123,7 @@ keys to lists of values. Ordering is preserved."
   (lexical-let ((mapping (make-hash-table
                            :test 'equal
                            :size 1000))
-                 (result nil))
+                 (result))
     (dolist (elt pairs mapping)
       (puthash (first elt) (cons
                              (second elt)
@@ -132,7 +132,7 @@ keys to lists of values. Ordering is preserved."
 
 (defun flx-isearch-hash-table-to-alist (hash-table)
   "Convert a hash table to an alist. No ordering is guaranteed."
-  (lexical-let ((result nil))
+  (lexical-let ((result))
     (maphash (lambda (key value)
                (setq result (cons `(,key . ,value) result)))
       hash-table)
