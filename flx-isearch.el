@@ -52,6 +52,7 @@
 
 (require 'flx)
 (require 'cl-lib)
+(eval-when-compile (require 'cl))
 
 ;; derived from flex-isearch.el
 (defgroup flx-isearch nil
