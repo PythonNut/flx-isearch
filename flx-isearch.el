@@ -126,9 +126,9 @@ keys to lists of values. Ordering is preserved."
                            :size 1000))
                  (result))
     (dolist (elt pairs mapping)
-      (puthash (first elt) (cons
-                             (second elt)
-                             (gethash (first elt) mapping nil))
+      (puthash (car elt) (cons
+                           (cadr elt)
+                           (gethash (car elt) mapping nil))
         mapping))))
 
 (defun flx-isearch-hash-table-to-alist (hash-table)
