@@ -1,4 +1,4 @@
-;;; flx-isearch.el --- Fuzzy incremental searching for emacs
+;;; flx-isearch.el --- Fuzzy incremental searching for emacs -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2014 PythonNut
 
