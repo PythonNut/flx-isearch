@@ -101,10 +101,6 @@ during flx-isearch searches")
 (defvar flx-isearch-activated nil
   "When nil, search is never flexible")
 
-(defun flx-isearch-strip-text-properties(txt)
-  (set-text-properties 0 (length txt) nil txt)
-  txt)
-
 (defun flx-isearch-collect-symbols ()
   (interactive)
   (let ((coll nil))
@@ -112,7 +108,7 @@ during flx-isearch searches")
       (goto-char (point-min))
       (while (forward-thing 'symbol)
         (setq coll (cons `(
-                            ,(flx-isearch-strip-text-properties
+                            ,(substring-no-properties
                                (thing-at-point 'symbol))
                             ,(car (bounds-of-thing-at-point 'symbol)))
                      coll)))
