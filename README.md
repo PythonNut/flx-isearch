@@ -29,8 +29,8 @@ Usage
 By default, `flx-isearch` does not bind any keys. To use, install from MELPA with `M-x package-install <ret> flx-isearch <ret>`. `package.el` will automatically setup the appropriate autoloads, and you can then do this:
 
 ```emacs
-(global-set-key (kbd "C-M-s") 'flx-isearch-forward)
-(global-set-key (kbd "C-M-r") 'flx-isearch-backward)
+(global-set-key (kbd "C-M-s") #'flx-isearch-forward)
+(global-set-key (kbd "C-M-r") #'flx-isearch-backward)
 ```
 
 Bugs
