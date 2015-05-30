@@ -359,5 +359,21 @@ enabled."
   (flx-isearch-activate-maybe regexp-p)
   (isearch-mode nil (not (null regexp-p)) nil (not no-recursive-edit)))
 
+(defadvice isearch-forward
+  (around flx-isearch activate preactivate compile)
+  (when (and flx-isearch-mode
+          (equal (ad-get-arg 0) '(16)))
+    (flx-isearch-activate)
+    (ad-set-arg 0 nil))
+  ad-do-it)
+
+(defadvice isearch-backward
+  (around flx-isearch activate preactivate compile)
+  (when (and flx-isearch-mode
+          (equal (ad-get-arg 0) '(16)))
+    (flx-isearch-activate)
+    (ad-set-arg 0 nil))
+  ad-do-it)
+
 (provide 'flx-isearch)
 ;;; flx-isearch.el ends here
