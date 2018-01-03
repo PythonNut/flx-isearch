@@ -1,6 +1,6 @@
 ;;; flx-isearch.el --- Fuzzy incremental searching for emacs -*- lexical-binding: t -*-
 
-;; Copyright (C) 2014, 2015, 2016 PythonNut
+;; Copyright (C) 2014, 2015, 2016, 2018 PythonNut
 
 ;; Author: PythonNut <pythonnut@pythonnut.com>
 ;; Keywords: convenience, search, flx
