@@ -312,6 +312,7 @@ enabled."
 ;; derived from flex-isearch.el
 ;;;###autoload
 (define-minor-mode flx-isearch-mode
+  "Minor mode to allow you to use `flx' fuzzy match with `isearch'."
   :init-value nil
   :group 'flx-isearch
   (if flx-isearch-mode
